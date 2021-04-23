@@ -414,6 +414,7 @@ func (am *Alertmanager) buildReceiverIntegrations(receiver *apimodels.PostableAp
 
 // PutAlerts receives the alerts and then sends them through the corresponding route based on whenever the alert has a receiver embedded or not
 func (am *Alertmanager) PutAlerts(postableAlerts apimodels.PostableAlerts) error {
+	fmt.Println("Putting alerts", postableAlerts)
 	now := time.Now()
 	alerts := make([]*types.Alert, 0, len(postableAlerts.PostableAlerts))
 	var validationErr *AlertValidationError
